@@ -1,98 +1,117 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-   <modelVersion>4.0.0</modelVersion>
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-   <parent>
-      <artifactId>knowledge-lifecycle</artifactId>
-      <groupId>uk.co.techblue</groupId>
-      <version>1.0-SNAPSHOT</version>
-   </parent>
+	<parent>
+		<artifactId>knowledge-lifecycle</artifactId>
+		<groupId>uk.co.techblue</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 
-   <artifactId>knowledge-lifecycle-web</artifactId>
-   <packaging>war</packaging>
-   <name>knowledge-lifecycle - web</name>
-   
-   <dependencies>
-      <!-- Dependency on the EJB module so we can use it's services if needed -->
-      <dependency>
-         <groupId>uk.co.techblue</groupId>
-         <artifactId>knowledge-lifecycle-core</artifactId>
-         <type>jar</type>
-         <scope>provided</scope>
-      </dependency>
+	<artifactId>knowledge-lifecycle-web</artifactId>
+	<packaging>war</packaging>
+	<name>knowledge-lifecycle - web</name>
 
-      <!-- Import the JAX-RS API, we use provided scope as the API is included in JBoss AS 7 -->
-      <dependency>
-         <groupId>org.jboss.spec.javax.ws.rs</groupId>
-         <artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
-         <scope>provided</scope>
-      </dependency>
+	<dependencies>
+		<!-- Dependency on the EJB module so we can use it's services if needed -->
+		<dependency>
+			<groupId>uk.co.techblue</groupId>
+			<artifactId>knowledge-lifecycle-core</artifactId>
+			<type>jar</type>
+			<scope>provided</scope>
+		</dependency>
 
-      <!-- Import the CDI API, we use provided scope as the API is included in JBoss AS 7 -->
-      <dependency>
-         <groupId>javax.enterprise</groupId>
-         <artifactId>cdi-api</artifactId>
-         <scope>provided</scope>
-      </dependency>
-      
-      <!-- Import the JSF API, we use provided scope as the API is included in JBoss AS 7 -->
-      <dependency>
-         <groupId>org.jboss.spec.javax.faces</groupId>
-         <artifactId>jboss-jsf-api_2.1_spec</artifactId>
-         <scope>provided</scope>
-      </dependency>
+		<!-- Import the JAX-RS API, we use provided scope as the API is included 
+			in JBoss AS 7 -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.ws.rs</groupId>
+			<artifactId>jboss-jaxrs-api_1.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
-      <!-- Import the JPA API, we use provided scope as the API is included in JBoss AS 7 -->
-      <dependency>
-         <groupId>org.hibernate.javax.persistence</groupId>
-         <artifactId>hibernate-jpa-2.0-api</artifactId>
-         <scope>provided</scope>
-      </dependency>
+		<!-- Import the CDI API, we use provided scope as the API is included in 
+			JBoss AS 7 -->
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
-       <!-- JSR-303 (Bean Validation) Implementation -->
-       <!-- Provides portable constraints such as @Email -->
-       <!-- Hibernate Validator is shipped in JBoss AS 7 -->
-       <dependency>
-           <groupId>org.hibernate</groupId>
-           <artifactId>hibernate-validator</artifactId>
-           <scope>provided</scope>
-           <exclusions>
-               <exclusion>
-                   <groupId>org.slf4j</groupId>
-                   <artifactId>slf4j-api</artifactId>
-               </exclusion>
-           </exclusions>
-       </dependency>
-       
-       <dependency>
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-context</artifactId>
-       </dependency>
-       
-       <dependency>
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-core</artifactId>
-       </dependency>
-       
-       <dependency>
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-web</artifactId>
-       </dependency>
-   </dependencies>
+		<!-- Import the JSF API, we use provided scope as the API is included in 
+			JBoss AS 7 -->
+		<dependency>
+			<groupId>org.jboss.spec.javax.faces</groupId>
+			<artifactId>jboss-jsf-api_2.1_spec</artifactId>
+			<scope>provided</scope>
+		</dependency>
 
-   <build>
-      <finalName>${project.artifactId}</finalName>
-      <plugins>
-         <plugin>
-            <artifactId>maven-war-plugin</artifactId>
-            <version>${version.war.plugin}</version>
-            <configuration>
-               <!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
-               <failOnMissingWebXml>false</failOnMissingWebXml>
-            </configuration>
-         </plugin>
-      </plugins>
-   </build>
+		<!-- Import the JPA API, we use provided scope as the API is included in 
+			JBoss AS 7 -->
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- JSR-303 (Bean Validation) Implementation -->
+		<!-- Provides portable constraints such as @Email -->
+		<!-- Hibernate Validator is shipped in JBoss AS 7 -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<scope>provided</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-web</artifactId>
+		</dependency>
+		
+		<dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-servlet</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.ocpsoft.rewrite</groupId>
+            <artifactId>rewrite-config-prettyfaces</artifactId>
+        </dependency>
+	</dependencies>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>${version.war.plugin}</version>
+				<configuration>
+					<!-- Java EE 6 doesn't require web.xml, Maven needs to catch up! -->
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>

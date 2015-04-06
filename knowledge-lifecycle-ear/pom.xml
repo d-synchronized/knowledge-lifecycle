@@ -31,6 +31,12 @@
 			<artifactId>knowledge-lifecycle-common</artifactId>
 			<type>jar</type>
 		</dependency>
+		
+		<dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-web</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
