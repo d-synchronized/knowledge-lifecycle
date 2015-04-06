@@ -16,16 +16,15 @@
  */
 package uk.co.techblue.service;
 
-import uk.co.techblue.model.Member;
+import java.util.logging.Logger;
 
-import javax.ejb.Stateless;
 import javax.enterprise.event.Event;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import java.util.logging.Logger;
+
+import uk.co.techblue.model.Member;
 
 // The @Stateless annotation eliminates the need for manual transaction demarcation
-@Stateless
 public class MemberRegistration {
 
     @Inject

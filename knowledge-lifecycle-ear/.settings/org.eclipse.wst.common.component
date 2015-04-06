@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="knowledge-lifecycle-ear">
+    <wb-module deploy-name="knowledge-lifecycle">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="knowledge-lifecycle-core.jar" deploy-path="/" handle="module:/resource/knowledge-lifecycle-core/knowledge-lifecycle-core">
+        <dependent-module archiveName="knowledge-lifecycle-common-1.0-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/knowledge-lifecycle-common/knowledge-lifecycle-common">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="knowledge-lifecycle-web.war" deploy-path="/" handle="module:/resource/knowledge-lifecycle-web/knowledge-lifecycle-web">
+        <dependent-module archiveName="knowledge-lifecycle-core-1.0-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/knowledge-lifecycle-core/knowledge-lifecycle-core">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="knowledge-lifecycle-common.jar" deploy-path="/lib" handle="module:/resource/knowledge-lifecycle-common/knowledge-lifecycle-common">
+        <dependent-module archiveName="knowledge-lifecycle-web-1.0-SNAPSHOT.war" deploy-path="/" handle="module:/resource/knowledge-lifecycle-web/knowledge-lifecycle-web">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

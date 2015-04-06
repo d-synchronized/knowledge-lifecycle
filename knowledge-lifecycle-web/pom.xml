@@ -19,7 +19,7 @@
       <dependency>
          <groupId>uk.co.techblue</groupId>
          <artifactId>knowledge-lifecycle-core</artifactId>
-         <type>ejb</type>
+         <type>jar</type>
          <scope>provided</scope>
       </dependency>
 

@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <application xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/application_6.xsd" version="6">
+  <application-name>knowledge-lifecycle</application-name>
   <display-name>knowledge-lifecycle-ear</display-name>
-  <module>
-    <ejb>knowledge-lifecycle-core.jar</ejb>
+  <initialize-in-order>true</initialize-in-order>
+  <module id="knowledge-lifecycle-common">
+    <java>knowledge-lifecycle-common-1.0-SNAPSHOT.jar</java>
   </module>
-  <module>
+  <module id="knowledge-lifecycle-core">
+    <java>knowledge-lifecycle-core-1.0-SNAPSHOT.jar</java>
+  </module>
+  <module id="knowledge-lifecycle-web">
     <web>
-      <web-uri>knowledge-lifecycle-web.war</web-uri>
-      <context-root>/knowledge-lifecycle-web</context-root>
+      <web-uri>knowledge-lifecycle-web-1.0-SNAPSHOT.war</web-uri>
+      <context-root>/knowledge-lifecycle</context-root>
     </web>
   </module>
-  <library-directory>lib</library-directory>
+  <library-directory>/lib</library-directory>
 </application>
