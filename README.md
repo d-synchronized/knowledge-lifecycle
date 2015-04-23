@@ -13,3 +13,9 @@ Project to demonstrate
 8. Springs
 
 More to add ;)
+
+Steps to run.
+
+1. mvn clean install
+2. deploy to the server
+3. Go to http://localhost:8080/knowledge-lifecycle
