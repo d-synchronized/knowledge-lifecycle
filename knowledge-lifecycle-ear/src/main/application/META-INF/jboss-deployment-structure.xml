@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jboss-deployment-structure>
+    <ear-subdeployments-isolated>false</ear-subdeployments-isolated>
+
+    <deployment>
+        <dependencies>
+            <module name="org.apache.commons.lang" slot="3.1" export="true" />
+            <module name="com.mysql.jdbc" export="true" />
+            <module name="com.google.guava" export="true" />
+            <module name="org.slf4j" export="true" />
+            <module name="org.slf4j.jcl-over-slf4j" export="true" />
+            <module name="org.infinispan" export="true" />
+            <module name="org.jasypt" export="true" />
+            <module name="org.freemarker" export="true" />
+            <module name="org.codehaus.jackson.jackson-mapper-asl" export="true" />
+            <module name="org.apache.httpcomponents" export="true" />
+            <module name="org.switchyard.component.common.knowledge" export="true" />
+            <module name="org.switchyard.deploy" export="true" />
+            <!-- <module name="org.quartz-scheduler.quartz" export="true" /> -->
+            <!-- <module name="deployment.com.barbon.referencing.common" export="true" /> -->
+        </dependencies>
+    </deployment>
+    <!-- <module name="deployment.com.barbon.referencing.common">
+        <resources>
+            <resource-root path="APP-INF/lib/barbon-referencing-common-${project.version}.jar" />
+        </resources>
+    </module> -->
+
+</jboss-deployment-structure>
