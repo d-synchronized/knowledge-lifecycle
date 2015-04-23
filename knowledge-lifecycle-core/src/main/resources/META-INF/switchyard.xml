@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <switchyard xmlns="urn:switchyard-config:switchyard:1.1" xmlns:sy="urn:switchyard-config:switchyard:1.1" xmlns:bean="urn:switchyard-component-bean:config:1.1" xmlns:bpm="urn:switchyard-component-bpm:config:1.1" xmlns:resteasy="urn:switchyard-component-resteasy:config:1.1" xmlns:rules="urn:switchyard-component-rules:config:1.1" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="knowledge-lifecycle-core" targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-core:1.0">
   <sca:composite name="knowledge-lifecycle-core" targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-core:1.0">
-    <sca:component name="Component">
-      <bean:implementation.bean class="uk.co.techblue.data.UserFacadeBean"/>
+    <sca:component name="UserFacadeComponent">
+      <bean:implementation.bean class="uk.co.techblue.core.impl.UserFacadeImpl"/>
       <sca:service name="UserFacade">
-        <sca:interface.java interface="uk.co.techblue.data.UserFacade"/>
+        <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       </sca:service>
     </sca:component>
-    <sca:service name="UserFacade" promote="Component/UserFacade">
-      <sca:interface.java interface="uk.co.techblue.data.UserFacade"/>
+    <sca:service name="UserFacade" promote="UserFacadeComponent/UserFacade">
+      <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       <sca:binding.sca name="UserFacadeScaBinding"/>
     </sca:service>
   </sca:composite>

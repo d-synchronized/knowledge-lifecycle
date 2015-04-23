@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>uk.co.techblue</groupId>
-            <artifactId>knowledge-lifecycle-core</artifactId>
+            <artifactId>knowledge-lifecycle-common</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>

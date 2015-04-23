@@ -118,6 +118,11 @@
             <groupId>org.switchyard.components</groupId>
             <artifactId>switchyard-component-resteasy</artifactId>
         </dependency>
+        <dependency>
+            <groupId>uk.co.techblue</groupId>
+            <artifactId>knowledge-lifecycle-common</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <profiles>
         <profile>

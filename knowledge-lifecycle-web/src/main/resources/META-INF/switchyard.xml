@@ -2,16 +2,16 @@
 <switchyard xmlns="urn:switchyard-config:switchyard:1.0" xmlns:sy="urn:switchyard-config:switchyard:1.0" xmlns:bean="urn:switchyard-component-bean:config:1.0" xmlns:sca="http://docs.oasis-open.org/ns/opencsa/sca/200912" name="knowledge-lifecycle-web" targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-web:1.0">
   <sca:composite name="knowledge-lifecycle-web" targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-web:1.0">
     <sca:component name="FacadeWrapper">
-      <bean:implementation.bean class="uk.co.techblue.controller.FacadeWrapperImpl"/>
+      <bean:implementation.bean class="uk.co.techblue.web.impl.FacadeWrapperImpl"/>
       <sca:service name="FacadeWrapper">
-        <sca:interface.java interface="uk.co.techblue.controller.FacadeWrapper"/>
+        <sca:interface.java interface="uk.co.techblue.web.interfaces.FacadeWrapper"/>
       </sca:service>
       <sca:reference name="UserFacade">
-        <sca:interface.java interface="uk.co.techblue.data.UserFacade"/>
+        <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       </sca:reference>
     </sca:component>
-    <sca:reference name="UserFacade" multiplicity="0..1" promote="FacadeWrapper/UserFacade">
-      <sca:interface.java interface="uk.co.techblue.data.UserFacade"/>
+    <sca:reference name="UserFacade" multiplicity="0..1">
+      <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       <sca:binding.sca sy:target="UserFacade" sy:targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-core:1.0" name="UserFacadeReferenceScaBinding"/>
     </sca:reference>
   </sca:composite>
