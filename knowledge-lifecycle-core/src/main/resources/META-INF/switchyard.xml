@@ -11,6 +11,38 @@
       <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       <sca:binding.sca name="UserFacadeScaBinding"/>
     </sca:service>
+    <sca:component name="HelpDeskService">
+      <bpm:implementation.bpm requires="managedTransaction.Local" persistent="false" processId="HelpDeskService">
+        <bpm:manifest>
+          <bpm:resources>
+            <bpm:resource location="help-desk.bpmn" type="BPMN"/>
+          </bpm:resources>
+        </bpm:manifest>
+        <bpm:operations>
+          <bpm:operation name="startHelpDeskReviewal" type="START_PROCESS">
+            <bpm:inputs>
+              <bpm:input from="message.content" to="ticketReviewInfo"/>
+            </bpm:inputs>
+          </bpm:operation>
+        </bpm:operations>
+      </bpm:implementation.bpm>
+      <sca:service name="HelpDeskService" requires="suspendsTransaction">
+        <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskService"/>
+      </sca:service>
+    </sca:component>
+    <sca:component name="HelpDeskReviewalImpl">
+      <bean:implementation.bean class="uk.co.techblue.core.impl.HelpDeskReviewalFacadeImpl"/>
+      <sca:service name="HelpDeskReviewalFacade">
+        <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade"/>
+      </sca:service>
+      <sca:reference name="HelpDeskService">
+        <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskService"/>
+      </sca:reference>
+    </sca:component>
+    <sca:service name="HelpDeskReviewalFacade" promote="HelpDeskReviewalImpl/HelpDeskReviewalFacade">
+      <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade"/>
+      <sca:binding.sca name="ReviewalServiceScaBinding"/>
+    </sca:service>
   </sca:composite>
   <domain>
     <properties>

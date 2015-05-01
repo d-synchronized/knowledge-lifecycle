@@ -9,10 +9,17 @@
       <sca:reference name="UserFacade">
         <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       </sca:reference>
+      <sca:reference name="HelpDeskReviewalFacade">
+        <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade"/>
+      </sca:reference>
     </sca:component>
-    <sca:reference name="UserFacade" multiplicity="0..1">
+    <sca:reference name="UserFacade" multiplicity="0..1" promote="FacadeWrapper/UserFacade">
       <sca:interface.java interface="uk.co.techblue.common.core.interfaces.UserFacade"/>
       <sca:binding.sca sy:target="UserFacade" sy:targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-core:1.0" name="UserFacadeReferenceScaBinding"/>
+    </sca:reference>
+    <sca:reference name="HelpDeskReviewalFacade" multiplicity="0..1" promote="FacadeWrapper/HelpDeskReviewalFacade">
+      <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade"/>
+      <sca:binding.sca sy:target="HelpDeskReviewalFacade" sy:targetNamespace="urn:uk.co.techblue:knowledge-lifecycle-core:1.0" name="ReviewalServiceRefeernceScaBinding"/>
     </sca:reference>
   </sca:composite>
 </switchyard>

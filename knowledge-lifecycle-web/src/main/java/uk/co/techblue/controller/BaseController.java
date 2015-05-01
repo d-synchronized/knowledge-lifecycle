@@ -2,6 +2,7 @@ package uk.co.techblue.controller;
 
 import javax.inject.Inject;
 
+import uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade;
 import uk.co.techblue.common.core.interfaces.UserFacade;
 import uk.co.techblue.web.interfaces.FacadeWrapper;
 
@@ -21,6 +22,15 @@ public class BaseController {
      */
     public UserFacade getUserFacade() {
         return facadeWrapper.getUserFacade();
+    }
+
+    /**
+     * Gets the help desk reviewal facade.
+     * 
+     * @return the help desk reviewal facade
+     */
+    public HelpDeskReviewalFacade getHelpDeskReviewalFacade() {
+        return facadeWrapper.gethelpdeSkDeskReviewalFacade();
     }
 
 }

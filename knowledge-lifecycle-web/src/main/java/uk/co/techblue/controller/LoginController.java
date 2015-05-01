@@ -29,6 +29,9 @@ public class LoginController extends BaseController {
      * @return the string
      */
     public String authenticate() {
+
+        getHelpDeskReviewalFacade().startReviewalProcess(1L);
+
         final UserAuthenticationRequest userAuthenticationRequest = new UserAuthenticationRequest(username, password);
         try {
             getUserFacade().authenticateUser(userAuthenticationRequest);

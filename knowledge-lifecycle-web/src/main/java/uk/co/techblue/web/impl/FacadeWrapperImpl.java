@@ -5,6 +5,7 @@ import javax.inject.Inject;
 import org.switchyard.component.bean.Reference;
 import org.switchyard.component.bean.Service;
 
+import uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade;
 import uk.co.techblue.common.core.interfaces.UserFacade;
 import uk.co.techblue.web.interfaces.FacadeWrapper;
 
@@ -19,14 +20,28 @@ public class FacadeWrapperImpl implements FacadeWrapper {
     @Reference
     private UserFacade userFacade;
 
-    /**
-     * Gets the user facade.
+    @Inject
+    @Reference
+    private HelpDeskReviewalFacade helpDeskReviewalFacade;
+
+    /*
+     * (non-Javadoc)
      * 
-     * @return the user facade
+     * @see uk.co.techblue.web.interfaces.FacadeWrapper#getUserFacade()
      */
     @Override
     public UserFacade getUserFacade() {
         return userFacade;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see uk.co.techblue.web.interfaces.FacadeWrapper#gethelpdeSkDeskReviewalFacade()
+     */
+    @Override
+    public HelpDeskReviewalFacade gethelpdeSkDeskReviewalFacade() {
+        return helpDeskReviewalFacade;
     }
 
 }
