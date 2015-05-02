@@ -7,6 +7,7 @@ import org.switchyard.component.bean.Service;
 
 import uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade;
 import uk.co.techblue.common.core.interfaces.HelpDeskService;
+import uk.co.techblue.common.dto.Ticket;
 import uk.co.techblue.common.dto.TicketReviewInfo;
 
 /**
@@ -30,7 +31,10 @@ public class HelpDeskReviewalFacadeImpl implements HelpDeskReviewalFacade {
         final TicketReviewInfo ticketReviewInfo = new TicketReviewInfo();
         ticketReviewInfo.setTicketId(1L);
         ticketReviewInfo.setDeveloperName("Dishant Anand");
-        helpDeskService.startHelpDeskReviewalProcess(ticketReviewInfo);
+
+        final Ticket ticket = new Ticket();
+        ticket.setTicketId(1L);
+        helpDeskService.startHelpDeskReviewalProcess("app-tick-123");
         return false;
     }
 

@@ -10,6 +10,12 @@
     <artifactId>knowledge-lifecycle-core</artifactId>
     <name>knowledge-lifecycle-core</name>
     <dependencies>
+    <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.1</version>
+            <scope>provided</scope>
+        </dependency>
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>
@@ -121,6 +127,24 @@
         <dependency>
             <groupId>uk.co.techblue</groupId>
             <artifactId>knowledge-lifecycle-common</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jbpm</groupId>
+            <artifactId>jbpm-human-task-audit</artifactId>
+            <version>6.0.0.CR5</version>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.28</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>

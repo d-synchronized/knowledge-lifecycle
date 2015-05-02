@@ -1,9 +1,9 @@
 package uk.co.techblue.common.core.interfaces;
 
-import uk.co.techblue.common.dto.TicketReviewInfo;
+import uk.co.techblue.common.dto.TicketAcknowledgement;
 
 public interface HelpDeskService {
 
-    public void startHelpDeskReviewalProcess(TicketReviewInfo ticketReviewInfo);
+    public TicketAcknowledgement startHelpDeskReviewalProcess(String ticketId);
 
 }
