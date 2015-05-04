@@ -19,6 +19,7 @@
             <module name="org.switchyard.deploy" export="true" />
             <!-- <module name="org.quartz-scheduler.quartz" export="true" /> -->
             <!-- <module name="deployment.com.barbon.referencing.common" export="true" /> -->
+            <module name="org.switchyard.component.bpm"/>
         </dependencies>
     </deployment>
     <!-- <module name="deployment.com.barbon.referencing.common">
@@ -27,4 +28,5 @@
         </resources>
     </module> -->
 
+    	
 </jboss-deployment-structure>

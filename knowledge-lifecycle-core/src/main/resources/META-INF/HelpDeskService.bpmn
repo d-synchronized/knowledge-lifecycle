@@ -1,0 +1,555 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:g="http://www.jboss.org/drools/flow/gpd" xmlns:tns="http://www.jboss.org/drools" xmlns="http://www.jboss.org/drools" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd" id="Definition" expressionLanguage="http://www.mvel.org/2.0" targetNamespace="http://www.jboss.org/drools" typeLanguage="http://www.java.com/javaTypes">
+  <bpmn2:itemDefinition id="_ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_4-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_4-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_5-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_5-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_8-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_8-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_10-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_10-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_12-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_12-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_13-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_13-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_14-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_14-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="_16-ticketItem" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="_16-ticketAckItem" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:itemDefinition id="ItemDefinition_1" structureRef="uk.co.techblue.common.dto.Ticket"/>
+  <bpmn2:itemDefinition id="ItemDefinition_2" structureRef="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+  <bpmn2:process id="HelpDeskService" tns:version="1" tns:packageName="uk.co.techblue.core.impl" tns:adHoc="false" name="Help Desk Service" isExecutable="true" processType="Private">
+    <bpmn2:extensionElements>
+      <tns:import name="java.util.Random"/>
+      <tns:import name="uk.co.techblue.common.dto.Ticket"/>
+      <tns:import name="uk.co.techblue.common.dto.TicketAcknowledgement"/>
+    </bpmn2:extensionElements>
+    <bpmn2:property id="ticket" itemSubjectRef="ItemDefinition_1"/>
+    <bpmn2:property id="ticketAck" itemSubjectRef="ItemDefinition_2"/>
+    <bpmn2:startEvent id="_1" name="StartProcess">
+      <bpmn2:outgoing>_1-_4</bpmn2:outgoing>
+    </bpmn2:startEvent>
+    <bpmn2:task id="_4" tns:taskName="SwitchYard Service Task" name="Open Ticket">
+      <bpmn2:incoming>_1-_4</bpmn2:incoming>
+      <bpmn2:outgoing>_4-_7</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_1">
+        <bpmn2:dataInput id="_4_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_4_ParameterNameInput" name="ParameterName"/>
+        <bpmn2:dataInput id="_4_ServiceNameInput" name="ServiceName"/>
+        <bpmn2:dataInput id="_4_OperationNameInput" name="OperationName"/>
+        <bpmn2:dataInput id="_4_ResultNameInput" name="ResultName"/>
+        <bpmn2:dataOutput id="_4_ticketAckOutput" name="ticketAck"/>
+        <bpmn2:inputSet id="InputSet_1">
+          <bpmn2:dataInputRefs>_4_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_4_ParameterNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_4_ServiceNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_4_OperationNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_4_ResultNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_1">
+          <bpmn2:dataOutputRefs>_4_ticketAckOutput</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_1">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_4_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_2">
+        <bpmn2:targetRef>_4_ParameterNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_1">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_1">ticket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_2">_4_ParameterNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_3">
+        <bpmn2:targetRef>_4_ServiceNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_2">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_3">TicketManagementService</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_4">_4_ServiceNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_4">
+        <bpmn2:targetRef>_4_OperationNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_3">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_5">openTicket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_6">_4_OperationNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_5">
+        <bpmn2:targetRef>_4_ResultNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_4">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_7">ticketAck</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_8">_4_ResultNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_1">
+        <bpmn2:sourceRef>_4_ticketAckOutput</bpmn2:sourceRef>
+        <bpmn2:targetRef>ticketAck</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+    </bpmn2:task>
+    <bpmn2:task id="_5" tns:taskName="SwitchYard Service Task" name="Reject Ticket">
+      <bpmn2:incoming>_11-_5</bpmn2:incoming>
+      <bpmn2:outgoing>_5-_6</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_2">
+        <bpmn2:dataInput id="_5_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_5_ParameterNameInput" name="ParameterName"/>
+        <bpmn2:dataInput id="_5_ServiceNameInput" name="ServiceName"/>
+        <bpmn2:dataInput id="_5_OperationNameInput" name="OperationName"/>
+        <bpmn2:inputSet id="InputSet_2">
+          <bpmn2:dataInputRefs>_5_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_5_ParameterNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_5_ServiceNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_5_OperationNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_2"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_6">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_5_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_7">
+        <bpmn2:targetRef>_5_ParameterNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_5">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_9">ticket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_10">_5_ParameterNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_8">
+        <bpmn2:targetRef>_5_ServiceNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_6">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_11">TicketManagementService</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_12">_5_ServiceNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_9">
+        <bpmn2:targetRef>_5_OperationNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_7">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_13">rejectTicket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_14">_5_OperationNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:endEvent id="_6" name="End">
+      <bpmn2:incoming>_5-_6</bpmn2:incoming>
+      <bpmn2:terminateEventDefinition id="TerminateEventDefinition_1"/>
+    </bpmn2:endEvent>
+    <bpmn2:exclusiveGateway id="_7" name="Gateway" gatewayDirection="Converging">
+      <bpmn2:incoming>_4-_7</bpmn2:incoming>
+      <bpmn2:incoming>_8-_7</bpmn2:incoming>
+      <bpmn2:outgoing>_7-_10</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:userTask id="_8" name="Provide Details">
+      <bpmn2:incoming>_16-_8</bpmn2:incoming>
+      <bpmn2:outgoing>_8-_7</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_3">
+        <bpmn2:dataInput id="_8_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_8_SkippableInput" name="Skippable"/>
+        <bpmn2:dataInput id="_8_TaskNameInput" name="TaskName"/>
+        <bpmn2:dataInput id="_8_GroupIdInput" name="GroupId"/>
+        <bpmn2:dataOutput id="_8_ticketOutput" name="ticket"/>
+        <bpmn2:inputSet id="InputSet_3">
+          <bpmn2:dataInputRefs>_8_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_8_SkippableInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_8_TaskNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_8_GroupIdInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_3">
+          <bpmn2:dataOutputRefs>_8_ticketOutput</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_10">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_8_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_11">
+        <bpmn2:targetRef>_8_SkippableInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_8">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_15">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_16">_8_SkippableInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_12">
+        <bpmn2:targetRef>_8_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_9">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_17">ProvideDetails</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_18">_8_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_13">
+        <bpmn2:targetRef>_8_GroupIdInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_10">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_19">users</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_20">_8_GroupIdInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_2">
+        <bpmn2:sourceRef>_8_ticketOutput</bpmn2:sourceRef>
+        <bpmn2:targetRef>ticket</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:potentialOwner id="PotentialOwner_1">
+        <bpmn2:resourceAssignmentExpression id="ResourceAssignmentExpression_1"/>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:userTask id="_10" name="Review Ticket">
+      <bpmn2:extensionElements>
+        <tns:onExit-script>
+          <tns:script></tns:script>
+        </tns:onExit-script>
+      </bpmn2:extensionElements>
+      <bpmn2:incoming>_7-_10</bpmn2:incoming>
+      <bpmn2:outgoing>_10-_11</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_4">
+        <bpmn2:dataInput id="_10_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_10_SkippableInput" name="Skippable"/>
+        <bpmn2:dataInput id="_10_TaskNameInput" name="TaskName"/>
+        <bpmn2:dataInput id="_10_GroupIdInput" name="GroupId"/>
+        <bpmn2:dataOutput id="_10_ticketOutput" name="ticket"/>
+        <bpmn2:inputSet id="InputSet_4">
+          <bpmn2:dataInputRefs>_10_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_10_SkippableInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_10_TaskNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_10_GroupIdInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_4">
+          <bpmn2:dataOutputRefs>_10_ticketOutput</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_14">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_10_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_15">
+        <bpmn2:targetRef>_10_SkippableInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_11">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_22">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_23">_10_SkippableInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_16">
+        <bpmn2:targetRef>_10_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_12">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_24">ReviewTicket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_25">_10_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_17">
+        <bpmn2:targetRef>_10_GroupIdInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_13">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_26">developers</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_27">_10_GroupIdInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_3">
+        <bpmn2:sourceRef>_10_ticketOutput</bpmn2:sourceRef>
+        <bpmn2:targetRef>ticket</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:potentialOwner id="PotentialOwner_2">
+        <bpmn2:resourceAssignmentExpression id="ResourceAssignmentExpression_2"/>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:exclusiveGateway id="_11" name="Gateway" gatewayDirection="Diverging">
+      <bpmn2:incoming>_10-_11</bpmn2:incoming>
+      <bpmn2:outgoing>_11-_5</bpmn2:outgoing>
+      <bpmn2:outgoing>_11-_12</bpmn2:outgoing>
+      <bpmn2:outgoing>_11-_16</bpmn2:outgoing>
+    </bpmn2:exclusiveGateway>
+    <bpmn2:task id="_12" tns:taskName="SwitchYard Service Task" name="Approve Ticket">
+      <bpmn2:incoming>_11-_12</bpmn2:incoming>
+      <bpmn2:outgoing>_12-_13</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_5">
+        <bpmn2:dataInput id="_12_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_12_ParameterNameInput" name="ParameterName"/>
+        <bpmn2:dataInput id="_12_ServiceNameInput" name="ServiceName"/>
+        <bpmn2:dataInput id="_12_OperationNameInput" name="OperationName"/>
+        <bpmn2:inputSet id="InputSet_5">
+          <bpmn2:dataInputRefs>_12_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_12_ParameterNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_12_ServiceNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_12_OperationNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_5"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_18">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_12_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_19">
+        <bpmn2:targetRef>_12_ParameterNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_14">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_29">ticket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_30">_12_ParameterNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_20">
+        <bpmn2:targetRef>_12_ServiceNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_15">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_31">TicketManagementService</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_32">_12_ServiceNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_21">
+        <bpmn2:targetRef>_12_OperationNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_16">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_33">approveTicket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_34">_12_OperationNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:userTask id="_13" name="Resolve Ticket">
+      <bpmn2:incoming>_12-_13</bpmn2:incoming>
+      <bpmn2:outgoing>_13-_14</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_6">
+        <bpmn2:dataInput id="_13_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_13_SkippableInput" name="Skippable"/>
+        <bpmn2:dataInput id="_13_TaskNameInput" name="TaskName"/>
+        <bpmn2:dataInput id="_13_GroupIdInput" name="GroupId"/>
+        <bpmn2:dataOutput id="_13_ticketOutput" name="ticket"/>
+        <bpmn2:inputSet id="InputSet_6">
+          <bpmn2:dataInputRefs>_13_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_13_SkippableInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_13_TaskNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_13_GroupIdInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_6">
+          <bpmn2:dataOutputRefs>_13_ticketOutput</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_22">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_13_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_23">
+        <bpmn2:targetRef>_13_SkippableInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_17">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_35">false</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_36">_13_SkippableInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_24">
+        <bpmn2:targetRef>_13_TaskNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_18">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_37">ResolveTicket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_38">_13_TaskNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_25">
+        <bpmn2:targetRef>_13_GroupIdInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_19">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_39">developers</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_40">_13_GroupIdInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="DataOutputAssociation_4">
+        <bpmn2:sourceRef>_13_ticketOutput</bpmn2:sourceRef>
+        <bpmn2:targetRef>ticket</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:potentialOwner id="PotentialOwner_3">
+        <bpmn2:resourceAssignmentExpression id="ResourceAssignmentExpression_3"/>
+      </bpmn2:potentialOwner>
+    </bpmn2:userTask>
+    <bpmn2:task id="_14" tns:taskName="SwitchYard Service Task" name="Close Ticket">
+      <bpmn2:incoming>_13-_14</bpmn2:incoming>
+      <bpmn2:outgoing>_14-_15</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_7">
+        <bpmn2:dataInput id="_14_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_14_ParameterNameInput" name="ParameterName"/>
+        <bpmn2:dataInput id="_14_ServiceNameInput" name="ServiceName"/>
+        <bpmn2:dataInput id="_14_OperationNameInput" name="OperationName"/>
+        <bpmn2:inputSet id="InputSet_7">
+          <bpmn2:dataInputRefs>_14_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_14_ParameterNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_14_ServiceNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_14_OperationNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_7"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_26">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_14_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_27">
+        <bpmn2:targetRef>_14_ParameterNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_20">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_42">ticket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_43">_14_ParameterNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_28">
+        <bpmn2:targetRef>_14_ServiceNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_21">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_44">TicketManagementService</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_45">_14_ServiceNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_29">
+        <bpmn2:targetRef>_14_OperationNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_22">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_46">closeTicket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_47">_14_OperationNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:endEvent id="_15" name="End">
+      <bpmn2:incoming>_14-_15</bpmn2:incoming>
+      <bpmn2:terminateEventDefinition id="TerminateEventDefinition_2"/>
+    </bpmn2:endEvent>
+    <bpmn2:task id="_16" tns:taskName="SwitchYard Service Task" name="Request Details">
+      <bpmn2:incoming>_11-_16</bpmn2:incoming>
+      <bpmn2:outgoing>_16-_8</bpmn2:outgoing>
+      <bpmn2:ioSpecification id="InputOutputSpecification_8">
+        <bpmn2:dataInput id="_16_ticketInput" name="ticket"/>
+        <bpmn2:dataInput id="_16_ParameterNameInput" name="ParameterName"/>
+        <bpmn2:dataInput id="_16_ServiceNameInput" name="ServiceName"/>
+        <bpmn2:dataInput id="_16_OperationNameInput" name="OperationName"/>
+        <bpmn2:inputSet id="InputSet_8">
+          <bpmn2:dataInputRefs>_16_ticketInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_16_ParameterNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_16_ServiceNameInput</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_16_OperationNameInput</bpmn2:dataInputRefs>
+        </bpmn2:inputSet>
+        <bpmn2:outputSet id="OutputSet_8"/>
+      </bpmn2:ioSpecification>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_30">
+        <bpmn2:sourceRef>ticket</bpmn2:sourceRef>
+        <bpmn2:targetRef>_16_ticketInput</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_31">
+        <bpmn2:targetRef>_16_ParameterNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_23">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_48">ticket</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_49">_16_ParameterNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_32">
+        <bpmn2:targetRef>_16_ServiceNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_24">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_50">TicketManagementService</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_51">_16_ServiceNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="DataInputAssociation_33">
+        <bpmn2:targetRef>_16_OperationNameInput</bpmn2:targetRef>
+        <bpmn2:assignment id="Assignment_25">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="FormalExpression_52">requestDetails</bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="FormalExpression_53">_16_OperationNameInput</bpmn2:to>
+        </bpmn2:assignment>
+      </bpmn2:dataInputAssociation>
+    </bpmn2:task>
+    <bpmn2:sequenceFlow id="_1-_4" tns:priority="1" name="" sourceRef="_1" targetRef="_4"/>
+    <bpmn2:sequenceFlow id="_11-_5" tns:priority="1" name="reject" sourceRef="_11" targetRef="_5">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_54" language="http://www.java.com/java">return ticket.getStatus().equals(&quot;rejected&quot;);</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_5-_6" tns:priority="1" name="" sourceRef="_5" targetRef="_6"/>
+    <bpmn2:sequenceFlow id="_4-_7" tns:priority="1" name="" sourceRef="_4" targetRef="_7"/>
+    <bpmn2:sequenceFlow id="_8-_7" tns:priority="1" name="" sourceRef="_8" targetRef="_7"/>
+    <bpmn2:sequenceFlow id="_16-_8" tns:priority="1" name="" sourceRef="_16" targetRef="_8"/>
+    <bpmn2:sequenceFlow id="_7-_10" tns:priority="1" name="" sourceRef="_7" targetRef="_10"/>
+    <bpmn2:sequenceFlow id="_10-_11" tns:priority="1" name="" sourceRef="_10" targetRef="_11"/>
+    <bpmn2:sequenceFlow id="_11-_12" tns:priority="1" name="approve" sourceRef="_11" targetRef="_12">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_55" language="http://www.java.com/java">return ticket.getStatus().equals(&quot;approved&quot;);</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+    <bpmn2:sequenceFlow id="_12-_13" tns:priority="1" name="" sourceRef="_12" targetRef="_13"/>
+    <bpmn2:sequenceFlow id="_13-_14" tns:priority="1" name="" sourceRef="_13" targetRef="_14"/>
+    <bpmn2:sequenceFlow id="_14-_15" tns:priority="1" name="" sourceRef="_14" targetRef="_15"/>
+    <bpmn2:sequenceFlow id="_11-_16" tns:priority="1" name="request" sourceRef="_11" targetRef="_16">
+      <bpmn2:conditionExpression xsi:type="bpmn2:tFormalExpression" id="FormalExpression_56" language="http://www.java.com/java">return ticket.getStatus().equals(&quot;requested&quot;);</bpmn2:conditionExpression>
+    </bpmn2:sequenceFlow>
+  </bpmn2:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_Process_1" bpmnElement="HelpDeskService">
+      <bpmndi:BPMNShape id="BPMNShape_StartEvent_1" bpmnElement="_1">
+        <dc:Bounds height="48.0" width="48.0" x="16.0" y="16.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_1" bpmnElement="_4">
+        <dc:Bounds height="48.0" width="123.0" x="88.0" y="17.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_2" bpmnElement="_5">
+        <dc:Bounds height="48.0" width="129.0" x="202.0" y="331.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_1" bpmnElement="_6">
+        <dc:Bounds height="48.0" width="48.0" x="243.0" y="403.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_1" bpmnElement="_7">
+        <dc:Bounds height="48.0" width="48.0" x="125.0" y="88.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_UserTask_1" bpmnElement="_8">
+        <dc:Bounds height="48.0" width="119.0" x="279.0" y="89.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_UserTask_2" bpmnElement="_10">
+        <dc:Bounds height="48.0" width="119.0" x="90.0" y="162.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_ExclusiveGateway_2" bpmnElement="_11">
+        <dc:Bounds height="48.0" width="48.0" x="125.0" y="241.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_3" bpmnElement="_12">
+        <dc:Bounds height="48.0" width="132.0" x="31.0" y="331.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_UserTask_3" bpmnElement="_13">
+        <dc:Bounds height="48.0" width="136.0" x="30.0" y="406.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_4" bpmnElement="_14">
+        <dc:Bounds height="48.0" width="126.0" x="36.0" y="482.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_EndEvent_2" bpmnElement="_15">
+        <dc:Bounds height="48.0" width="48.0" x="76.0" y="552.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_Task_5" bpmnElement="_16">
+        <dc:Bounds height="48.0" width="145.0" x="266.0" y="242.0"/>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_1" bpmnElement="_1-_4" sourceElement="BPMNShape_StartEvent_1" targetElement="BPMNShape_Task_1">
+        <di:waypoint xsi:type="dc:Point" x="40.0" y="40.0"/>
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="41.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_2" bpmnElement="_11-_5" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_Task_2">
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="266.0" y="355.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_3" bpmnElement="_5-_6" sourceElement="BPMNShape_Task_2" targetElement="BPMNShape_EndEvent_1">
+        <di:waypoint xsi:type="dc:Point" x="266.0" y="355.0"/>
+        <di:waypoint xsi:type="dc:Point" x="267.0" y="427.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_4" bpmnElement="_4-_7" sourceElement="BPMNShape_Task_1" targetElement="BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="41.0"/>
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="112.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_5" bpmnElement="_8-_7" sourceElement="BPMNShape_UserTask_1" targetElement="BPMNShape_ExclusiveGateway_1">
+        <di:waypoint xsi:type="dc:Point" x="338.0" y="113.0"/>
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="112.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_6" bpmnElement="_16-_8" sourceElement="BPMNShape_Task_5" targetElement="BPMNShape_UserTask_1">
+        <di:waypoint xsi:type="dc:Point" x="338.0" y="266.0"/>
+        <di:waypoint xsi:type="dc:Point" x="338.0" y="113.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_7" bpmnElement="_7-_10" sourceElement="BPMNShape_ExclusiveGateway_1" targetElement="BPMNShape_UserTask_2">
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="112.0"/>
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="186.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_8" bpmnElement="_10-_11" sourceElement="BPMNShape_UserTask_2" targetElement="BPMNShape_ExclusiveGateway_2">
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="186.0"/>
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="265.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_9" bpmnElement="_11-_12" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_Task_3">
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="97.0" y="355.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_10" bpmnElement="_12-_13" sourceElement="BPMNShape_Task_3" targetElement="BPMNShape_UserTask_3">
+        <di:waypoint xsi:type="dc:Point" x="97.0" y="355.0"/>
+        <di:waypoint xsi:type="dc:Point" x="98.0" y="430.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_11" bpmnElement="_13-_14" sourceElement="BPMNShape_UserTask_3" targetElement="BPMNShape_Task_4">
+        <di:waypoint xsi:type="dc:Point" x="98.0" y="430.0"/>
+        <di:waypoint xsi:type="dc:Point" x="99.0" y="506.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_12" bpmnElement="_14-_15" sourceElement="BPMNShape_Task_4" targetElement="BPMNShape_EndEvent_2">
+        <di:waypoint xsi:type="dc:Point" x="99.0" y="506.0"/>
+        <di:waypoint xsi:type="dc:Point" x="100.0" y="576.0"/>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_SequenceFlow_13" bpmnElement="_11-_16" sourceElement="BPMNShape_ExclusiveGateway_2" targetElement="BPMNShape_Task_5">
+        <di:waypoint xsi:type="dc:Point" x="149.0" y="265.0"/>
+        <di:waypoint xsi:type="dc:Point" x="338.0" y="266.0"/>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn2:definitions>

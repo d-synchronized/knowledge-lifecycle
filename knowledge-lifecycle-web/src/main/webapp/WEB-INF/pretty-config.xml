@@ -6,4 +6,8 @@
         <pattern value="/login" />
         <view-id value="login.xhtml" />
     </url-mapping>
+    <url-mapping id="helpdesk">
+        <pattern value="/helpdesk" />
+        <view-id value="helpdesk.xhtml" />
+    </url-mapping>
 </pretty-config>

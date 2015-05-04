@@ -1,9 +1,14 @@
 package uk.co.techblue.common.dto;
 
+import java.io.Serializable;
+
 /**
  * The Class TicketAcknowledgement.
  */
-public class TicketAcknowledgement {
+public class TicketAcknowledgement implements Serializable {
+
+    /** The Constant serialVersionUID. */
+    private static final long serialVersionUID = 8423951138379187605L;
 
     /** The ticket id. */
     private Long ticketId;

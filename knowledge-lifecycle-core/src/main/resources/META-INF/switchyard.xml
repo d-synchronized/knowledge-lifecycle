@@ -20,36 +20,34 @@
         <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskService"/>
       </sca:reference>
     </sca:component>
-    <sca:service name="HelpDeskReviewalFacade" promote="HelpDeskReviewalImpl/HelpDeskReviewalFacade">
-      <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade"/>
-      <sca:binding.sca name="ReviewalServiceScaBinding"/>
-    </sca:service>
     <sca:component name="TicketManagementServiceImpl">
       <bean:implementation.bean class="uk.co.techblue.core.impl.TicketManagementServiceImpl"/>
       <sca:service name="TicketManagementService">
         <sca:interface.java interface="uk.co.techblue.common.core.interfaces.TicketManagementService"/>
       </sca:service>
     </sca:component>
-    <sca:component name="Help-desk">
-      <bpm:implementation.bpm persistent="false" processId="HelpDeskService">
-        <bpm:loggers>
-          <bpm:logger/>
-        </bpm:loggers>
+    <sca:service name="HelpDeskReviewalFacade" promote="HelpDeskReviewalImpl/HelpDeskReviewalFacade">
+      <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskReviewalFacade"/>
+      <sca:binding.sca name="HelpDeskServiceScaBinding"/>
+    </sca:service>
+    <sca:component name="HelpDeskReviewalService">
+      <bpm:implementation.bpm persistent="true" processId="HelpDeskService">
         <bpm:manifest>
           <bpm:resources>
-            <bpm:resource location="META-INF/help-desk.bpmn" type="BPMN2"/>
+            <bpm:resource location="META-INF/HelpDeskService.bpmn" type="BPMN2"/>
           </bpm:resources>
         </bpm:manifest>
         <bpm:operations>
           <bpm:operation name="startHelpDeskReviewalProcess" type="START_PROCESS">
             <bpm:inputs>
-              <bpm:input from="message.content" to="ticketId"/>
+              <bpm:input from="message.content" to="ticket"/>
             </bpm:inputs>
             <bpm:outputs>
               <bpm:output from="ticketAck" to="message.content"/>
             </bpm:outputs>
           </bpm:operation>
         </bpm:operations>
+        <bpm:userGroupCallback class="uk.co.techblue.bpm.callback.HelpDeskUserGroupCallback"/>
       </bpm:implementation.bpm>
       <sca:service name="HelpDeskService">
         <sca:interface.java interface="uk.co.techblue.common.core.interfaces.HelpDeskService"/>

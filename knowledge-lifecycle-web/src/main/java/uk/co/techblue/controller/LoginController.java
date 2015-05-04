@@ -1,8 +1,12 @@
 package uk.co.techblue.controller;
 
+import java.io.IOException;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.component.UIComponent;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 
 import uk.co.techblue.common.dto.user.UserAuthenticationRequest;
 import uk.co.techblue.common.exception.UserException;
@@ -31,12 +35,18 @@ public class LoginController extends BaseController {
     public String authenticate() {
 
         getHelpDeskReviewalFacade().startReviewalProcess(1L);
-
         final UserAuthenticationRequest userAuthenticationRequest = new UserAuthenticationRequest(username, password);
         try {
             getUserFacade().authenticateUser(userAuthenticationRequest);
         } catch (final UserException userException) {
             System.out.println(userException);
+        }
+        final FacesContext fc = FacesContext.getCurrentInstance();
+        final ExternalContext ec = fc.getExternalContext();
+        try {
+            ec.redirect("/knowledge-lifecycle/helpdesk");
+        } catch (final IOException e) {
+            e.printStackTrace();
         }
         return "demo";
     }
